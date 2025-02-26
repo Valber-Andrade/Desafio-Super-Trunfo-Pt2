@@ -6,6 +6,7 @@
 // Tema 2 - Comparação das Cartas
 
 int main() {
+
    //Adicionando as variaveis
    char estado1, estado2;
    char codigodacidade1[5], codigodacidade2[5];
@@ -25,14 +26,14 @@ int main() {
    //Adicionando o scanf para armazenar a resposta do usuário
 
    printf("Adicione os dados das cidades\n");
-   printf("Qual o codigo do primeiro estado?\n");
+   printf("Qual o codigo do primeiro estado(Entre A e H)?\n");
    scanf(" %c", &estado1);
-   printf("Qual o codigo do segundo estado?\n");
+   printf("Qual o codigo do segundo estado(Entre A e H)?\n");
    scanf(" %c", &estado2);
 
-   printf("Qual o código da primeira cidade?\n");
+   printf("Qual o código da primeira cidade(Entre 01 e 08)?\n");
    scanf("%s", codigodacidade1);
-   printf("Qual o código da segunda cidade?\n");
+   printf("Qual o código da segunda cidade(Entre 01 e 08)?\n");
    scanf("%s", codigodacidade2);
 
    printf("Digite a nome da primeira cidade?\n");
@@ -103,7 +104,7 @@ int main() {
   } else if (populacao1 < populacao2) {
       printf("Cidade %s tem a maior população: %lu \n", cidade2, populacao2);
   } else {
-     printf("As duas cidades possuem a mesma quantidade de população: %.2f \n", populacao1);
+     printf("As duas cidades possuem a mesma quantidade de população: %.lu \n", populacao1);
   }
   break;
 
@@ -194,7 +195,10 @@ int main() {
   default:
       printf("Opção inválida! Selecione uma opção entre 1 e 7\n");
       break;
-}
+      }
+
+   }
 
 return 0;
+
 }
