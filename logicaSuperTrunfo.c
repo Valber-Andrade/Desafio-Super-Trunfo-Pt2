@@ -10,7 +10,7 @@ int main() {
    //Adicionando as variaveis
    char estado1, estado2;
    char codigodacidade1[5], codigodacidade2[5];
-   char cidade[20], cidade1[20], cidade2[20];
+   char* cidade, cidade1[20], cidade2[20];
    unsigned long int populacao, populacao1, populacao2;
    float area, area1, area2;
    float pib, pib1, pib2;
@@ -101,10 +101,9 @@ int main() {
    printf("A Cidade de %s possui %lu habitantes.\n", cidade2, populacao2);
 
    populacao1 > populacao2 ? (populacao = populacao1) : (populacao = populacao2);
-   populacao1 > populacao2 ? cidade == cidade1 : cidade == cidade2;
+   cidade = (populacao1 > populacao2) ? cidade1 : cidade2;
    Resultado1 = populacao1 > populacao2 ? 1 : 0;
-   printf("Cidade %s tem a maior população: %lu \n", cidade, populacao);
-
+   printf("Cidade %s tem a maior população: %lu \n\n", cidade, populacao);
   break;
 
    case 2:
@@ -112,42 +111,35 @@ int main() {
    printf("Comparando a Área das duas cidades:\n");
    printf("A Cidade de %s possui %2.f KM².\n", cidade1, area1);
    printf("A Cidade de %s possui %2.f KM².\n", cidade2, area2);
-      if (area1 > area2) {
-         printf("Cidade %s tem a maior area: %.2f \n", cidade1, area1);
-        } else if (area1 < area2) {
-         printf("Cidade %s tem a maior area: %.2f \n", cidade2, area2);
-     } else {
-        printf("As duas cidades possuem a mesma Área por KM²: %.2f \n", area1);
-  
-     }
-      break;
 
-      case 3:
-      printf("\nComparação entre as Cidades: %s e %s\n", cidade1, cidade2);
-      printf("Comparando o PIB das duas cidades:\n");
-      printf("A Cidade de %s possui PIB de R$%.2f bilhões.\n", cidade1, pib1);
-      printf("A Cidade de %s possui PIB de R$%.2f bilhões.\n", cidade2, pib2);
-      if (pib1 > pib2) {
-          printf("Cidade %s tem o maior PIB: R$%.2f bilhões\n", cidade1, pib1);
-      } else if (pib1 < pib2) {
-          printf("Cidade %s tem o maior PIB: R$%.2f bilhões\n", cidade2, pib2);
-      } else {
-          printf("As duas cidades possuem o mesmo PIB: %.2f bilhões\n", pib1);
-      }
-      break;
+   area1 > area2 ? (area = area1) : (area = area2);
+   cidade = (area1 > area2) ? cidade1 : cidade2;
+   Resultado1 = area1 > area2 ? 1 : 0;
+   printf("Cidade %s tem a maior area: %.2f \n\n", cidade, area);
+   break;
 
-  case 4:
+   case 3:
+    printf("\nComparação entre as Cidades: %s e %s\n", cidade1, cidade2);
+    printf("Comparando o PIB das duas cidades:\n");
+    printf("A Cidade de %s possui PIB de R$%.2f bilhões.\n", cidade1, pib1);
+    printf("A Cidade de %s possui PIB de R$%.2f bilhões.\n", cidade2, pib2);
+
+    pib1 > pib2 ? (pib = pib1) : (pib = pib2);
+    cidade = (pib1 > pib2) ? cidade1 : cidade2;
+    Resultado1 = pib1 > pib2 ? 1 : 0;
+    printf("Cidade %s tem o maior PIB: R$%.2f bilhões.\n\n", cidade, pib);
+    break;
+
+    case 4:
       printf("\nComparação entre as Cidades: %s e %s\n", cidade1, cidade2);
       printf("Comparando os pontos turísticos das duas cidades:\n");
       printf("A Cidade de %s possui %d pontos turísticos.\n", cidade1, pontosturisticos1);
       printf("A Cidade de %s possui %d pontos turísticos.\n", cidade2, pontosturisticos2);
-      if (pontosturisticos1 > pontosturisticos2) {
-          printf("Cidade %s tem mais pontos turísticos: %d\n", cidade1, pontosturisticos1);
-      } else if (pontosturisticos1 < pontosturisticos2) {
-          printf("Cidade %s tem mais pontos turísticos: %d\n", cidade2, pontosturisticos2);
-      } else {
-          printf("As duas cidades possuem o mesmo número de pontos turísticos: %d\n", pontosturisticos1);
-      }
+
+      pontosturisticos1 > pontosturisticos2 ? (pontosturisticos = pontosturisticos1) : (pontosturisticos = pontosturisticos2);
+      cidade = (pontosturisticos1 > pontosturisticos2) ? cidade1 : cidade2;
+      Resultado1 = pontosturisticos1 > pontosturisticos2 ? 1 : 0;
+      printf("Cidade %s tem mais pontos turísticos: %d\n\n", cidade, pontosturisticos);
       break;
 
   case 5:
@@ -155,13 +147,11 @@ int main() {
       printf("Comparando a densidade populacional das duas cidades:\n");
       printf("A Cidade de %s possui a Densidade Populacional de: %.2f.\n", cidade1, DensidadePopulacional1);
       printf("A Cidade de %s possui a Densidade Populacional de: %.2f.\n", cidade2, DensidadePopulacional2);
-      if (DensidadePopulacional1 < DensidadePopulacional2) {
-          printf("Cidade %s tem a melhor Densidade Populacional: %.2f\n", cidade1, DensidadePopulacional1);
-      } else if (DensidadePopulacional1 > DensidadePopulacional2) {
-          printf("Cidade %s tem a melhor Densidade Populacional: %.2f\n", cidade2, DensidadePopulacional2);
-      } else {
-          printf("As duas cidades possuem Densidade Populacional igual: %.2f\n", DensidadePopulacional1);
-      }
+
+      DensidadePopulacional1 < DensidadePopulacional2 ? (DensidadePopulacional = DensidadePopulacional1) : (DensidadePopulacional = DensidadePopulacional2);
+      cidade = (DensidadePopulacional1 < DensidadePopulacional2) ? cidade1 : cidade2;
+      Resultado1 = DensidadePopulacional1 < DensidadePopulacional2 ? 1 : 0;
+      printf("Cidade %s tem a melhor Densidade Populacional: %.2f\n\n", cidade, DensidadePopulacional);
       break;
 
   case 6:
@@ -169,13 +159,11 @@ int main() {
       printf("Comparando o PIB Per Capita das duas cidades:\n");
       printf("A Cidade de %s possui PIB per capita de R$%.2f milhões.\n", cidade1, PibPerCapita1);
       printf("A Cidade de %s possui PIB per capita de R$%.2f milhões.\n", cidade2, PibPerCapita2);
-      if (PibPerCapita1 > PibPerCapita2) {
-          printf("Cidade %s tem o maior PIB Per Capita: %.2f\n", cidade1, PibPerCapita1);
-      } else if (PibPerCapita1 < PibPerCapita2) {
-          printf("Cidade %s tem o maior PIB Per Capita: %.2f\n", cidade2, PibPerCapita2);
-      } else {
-          printf("As duas cidades têm o mesmo PIB Per Capita: %.2f\n", PibPerCapita1);
-      }
+
+      PibPerCapita1 > PibPerCapita2 ? (PibPerCapita = PibPerCapita1) : (PibPerCapita = PibPerCapita2);
+      cidade = (PibPerCapita1 > PibPerCapita2) ? cidade1 : cidade2;
+      Resultado1 = PibPerCapita1 > PibPerCapita2 ? 1 : 0;
+      printf("Cidade %s tem o maior PIB Per Capita: %.2f\n\n", cidade, PibPerCapita);
       break;
 
   case 7:
@@ -183,11 +171,11 @@ int main() {
       printf("Comparando o Super Poder das duas cidades:\n");
       printf("A Cidade de %s possui o Super Poder de %.2f\n", cidade1, SuperPoder1);
       printf("A Cidade de %s possui o Super Poder de %.2f\n", cidade2, SuperPoder2);
-      if (SuperPoder1 > SuperPoder2) {
-          printf("O Super Poder da cidade %s é o maior: %.2f\n", cidade1, SuperPoder1);
-      } else {
-          printf("O Super Poder da cidade %s é o maior: %.2f\n", cidade2, SuperPoder2);
-      }
+
+      SuperPoder1 > SuperPoder2 ? (SuperPoder = SuperPoder1) : (SuperPoder = SuperPoder2);
+      cidade = (SuperPoder1 > SuperPoder2) ? cidade1 : cidade2;
+      Resultado1 = SuperPoder1 > SuperPoder2 ? 1 : 0;
+      printf("O Super Poder da cidade %s é o maior: %.2f\n\n", cidade, SuperPoder);
       break;
 
   default:
@@ -213,109 +201,105 @@ int main() {
     switch (Atributo2)
    {
 
-   case 1:
-     printf("Comparação entre as Cidades: %s e %s \n", cidade1, cidade2);
-     printf("Comparando a população das duas cidades:\n");
-     printf("A Cidade de %s possui %lu habitantes.\n", cidade1, populacao1);
-     printf("A Cidade de %s possui %lu habitantes.\n", cidade2, populacao2);
-     if (populacao1 > populacao2) {
-      printf("Cidade %s tem a maior população: %lu \n", cidade1, populacao1);
-     } else if (populacao1 < populacao2) {
-      printf("Cidade %s tem a maior população: %lu \n", cidade2, populacao2);
-     } else {
-     printf("As duas cidades possuem a mesma quantidade de população: %.lu \n", populacao1);
-     }
+    case 1:
+    printf("Comparação entre as Cidades: %s e %s \n", cidade1, cidade2);
+    printf("Comparando a população das duas cidades:\n");
+    printf("A Cidade de %s possui %lu habitantes.\n", cidade1, populacao1);
+    printf("A Cidade de %s possui %lu habitantes.\n", cidade2, populacao2);
+ 
+    populacao1 > populacao2 ? (populacao = populacao1) : (populacao = populacao2);
+    cidade = (populacao1 > populacao2) ? cidade1 : cidade2;
+    Resultado2 = populacao1 > populacao2 ? 1 : 0;
+    printf("Cidade %s tem a maior população: %lu \n\n", cidade, populacao);
+   break;
+ 
+    case 2:
+    printf("Comparação entre as Cidades: %s e %s \n", cidade1, cidade2);
+    printf("Comparando a Área das duas cidades:\n");
+    printf("A Cidade de %s possui %2.f KM².\n", cidade1, area1);
+    printf("A Cidade de %s possui %2.f KM².\n", cidade2, area2);
+ 
+    area1 > area2 ? (area = area1) : (area = area2);
+    cidade = (area1 > area2) ? cidade1 : cidade2;
+    Resultado2 = area1 > area2 ? 1 : 0;
+    printf("Cidade %s tem a maior area: %.2f \n\n", cidade, area);
+    break;
+ 
+    case 3:
+     printf("\nComparação entre as Cidades: %s e %s\n", cidade1, cidade2);
+     printf("Comparando o PIB das duas cidades:\n");
+     printf("A Cidade de %s possui PIB de R$%.2f bilhões.\n", cidade1, pib1);
+     printf("A Cidade de %s possui PIB de R$%.2f bilhões.\n", cidade2, pib2);
+ 
+     pib1 > pib2 ? (pib = pib1) : (pib = pib2);
+     cidade = (pib1 > pib2) ? cidade1 : cidade2;
+     Resultado2 = pib1 > pib2 ? 1 : 0;
+     printf("Cidade %s tem o maior PIB: R$%.2f bilhões.\n\n", cidade, pib);
      break;
-
-   case 2:
-     printf("Comparação entre as Cidades: %s e %s \n", cidade1, cidade2);
-      printf("Comparando a Área das duas cidades:\n");
-      printf("A Cidade de %s possui %2.f KM².\n", cidade1, area1);
-      printf("A Cidade de %s possui %2.f KM².\n", cidade2, area2);
-     if (area1 > area2) {
-         printf("Cidade %s tem a maior area: %.2f \n", cidade1, area1);
-     } else if (area1 < area2) {
-         printf("Cidade %s tem a maior area: %.2f \n", cidade2, area2);
-     } else {
-        printf("As duas cidades possuem a mesma Área por KM²: %.2f \n", area1);
-  
-     }
-      break;
-
-  case 3:
-      printf("\nComparação entre as Cidades: %s e %s\n", cidade1, cidade2);
-      printf("Comparando o PIB das duas cidades:\n");
-      printf("A Cidade de %s possui PIB de R$%.2f bilhões.\n", cidade1, pib1);
-      printf("A Cidade de %s possui PIB de R$%.2f bilhões.\n", cidade2, pib2);
-      if (pib1 > pib2) {
-          printf("Cidade %s tem o maior PIB: R$%.2f bilhões\n", cidade1, pib1);
-      } else if (pib1 < pib2) {
-          printf("Cidade %s tem o maior PIB: R$%.2f bilhões\n", cidade2, pib2);
-      } else {
-          printf("As duas cidades possuem o mesmo PIB: %.2f bilhões\n", pib1);
-      }
-      break;
-
-  case 4:
-      printf("\nComparação entre as Cidades: %s e %s\n", cidade1, cidade2);
-      printf("Comparando os pontos turísticos das duas cidades:\n");
-      printf("A Cidade de %s possui %d pontos turísticos.\n", cidade1, pontosturisticos1);
-      printf("A Cidade de %s possui %d pontos turísticos.\n", cidade2, pontosturisticos2);
-      if (pontosturisticos1 > pontosturisticos2) {
-          printf("Cidade %s tem mais pontos turísticos: %d\n", cidade1, pontosturisticos1);
-      } else if (pontosturisticos1 < pontosturisticos2) {
-          printf("Cidade %s tem mais pontos turísticos: %d\n", cidade2, pontosturisticos2);
-      } else {
-          printf("As duas cidades possuem o mesmo número de pontos turísticos: %d\n", pontosturisticos1);
-      }
-      break;
-
-  case 5:
-      printf("\nComparação entre as Cidades: %s e %s\n", cidade1, cidade2);
-      printf("Comparando a densidade populacional das duas cidades:\n");
-      printf("A Cidade de %s possui a Densidade Populacional de: %.2f.\n", cidade1, DensidadePopulacional1);
-      printf("A Cidade de %s possui a Densidade Populacional de: %.2f.\n", cidade2, DensidadePopulacional2);
-      if (DensidadePopulacional1 < DensidadePopulacional2) {
-          printf("Cidade %s tem a melhor Densidade Populacional: %.2f\n", cidade1, DensidadePopulacional1);
-      } else if (DensidadePopulacional1 > DensidadePopulacional2) {
-          printf("Cidade %s tem a melhor Densidade Populacional: %.2f\n", cidade2, DensidadePopulacional2);
-      } else {
-          printf("As duas cidades possuem Densidade Populacional igual: %.2f\n", DensidadePopulacional1);
-      }
-      break;
-
-  case 6:
-      printf("\nComparação entre as Cidades: %s e %s\n", cidade1, cidade2);
-      printf("Comparando o PIB Per Capita das duas cidades:\n");
-      printf("A Cidade de %s possui PIB per capita de R$%.2f milhões.\n", cidade1, PibPerCapita1);
-      printf("A Cidade de %s possui PIB per capita de R$%.2f milhões.\n", cidade2, PibPerCapita2);
-      if (PibPerCapita1 > PibPerCapita2) {
-          printf("Cidade %s tem o maior PIB Per Capita: %.2f\n", cidade1, PibPerCapita1);
-      } else if (PibPerCapita1 < PibPerCapita2) {
-          printf("Cidade %s tem o maior PIB Per Capita: %.2f\n", cidade2, PibPerCapita2);
-      } else {
-          printf("As duas cidades têm o mesmo PIB Per Capita: %.2f\n", PibPerCapita1);
-      }
-      break;
-
-  case 7:
-      printf("\nComparação entre as Cidades: %s e %s\n", cidade1, cidade2);
-      printf("Comparando o Super Poder das duas cidades:\n");
-      printf("A Cidade de %s possui o Super Poder de %.2f\n", cidade1, SuperPoder1);
-      printf("A Cidade de %s possui o Super Poder de %.2f\n", cidade2, SuperPoder2);
-      if (SuperPoder1 > SuperPoder2) {
-          printf("O Super Poder da cidade %s é o maior: %.2f\n", cidade1, SuperPoder1);
-      } else {
-          printf("O Super Poder da cidade %s é o maior: %.2f\n", cidade2, SuperPoder2);
-      }
-      break;
-
-  default:
-      printf("Opção inválida! Selecione uma opção entre 1 e 7\n");
-      break;
+ 
+     case 4:
+       printf("\nComparação entre as Cidades: %s e %s\n", cidade1, cidade2);
+       printf("Comparando os pontos turísticos das duas cidades:\n");
+       printf("A Cidade de %s possui %d pontos turísticos.\n", cidade1, pontosturisticos1);
+       printf("A Cidade de %s possui %d pontos turísticos.\n", cidade2, pontosturisticos2);
+ 
+       pontosturisticos1 > pontosturisticos2 ? (pontosturisticos = pontosturisticos1) : (pontosturisticos = pontosturisticos2);
+       cidade = (pontosturisticos1 > pontosturisticos2) ? cidade1 : cidade2;
+       Resultado2 = pontosturisticos1 > pontosturisticos2 ? 1 : 0;
+       printf("Cidade %s tem mais pontos turísticos: %d\n\n", cidade, pontosturisticos);
+       break;
+ 
+   case 5:
+       printf("\nComparação entre as Cidades: %s e %s\n", cidade1, cidade2);
+       printf("Comparando a densidade populacional das duas cidades:\n");
+       printf("A Cidade de %s possui a Densidade Populacional de: %.2f.\n", cidade1, DensidadePopulacional1);
+       printf("A Cidade de %s possui a Densidade Populacional de: %.2f.\n", cidade2, DensidadePopulacional2);
+ 
+       DensidadePopulacional1 < DensidadePopulacional2 ? (DensidadePopulacional = DensidadePopulacional1) : (DensidadePopulacional = DensidadePopulacional2);
+       cidade = (DensidadePopulacional1 < DensidadePopulacional2) ? cidade1 : cidade2;
+       Resultado2 = DensidadePopulacional1 < DensidadePopulacional2 ? 1 : 0;
+       printf("Cidade %s tem a melhor Densidade Populacional: %.2f\n\n", cidade, DensidadePopulacional);
+       break;
+ 
+   case 6:
+       printf("\nComparação entre as Cidades: %s e %s\n", cidade1, cidade2);
+       printf("Comparando o PIB Per Capita das duas cidades:\n");
+       printf("A Cidade de %s possui PIB per capita de R$%.2f milhões.\n", cidade1, PibPerCapita1);
+       printf("A Cidade de %s possui PIB per capita de R$%.2f milhões.\n", cidade2, PibPerCapita2);
+ 
+       PibPerCapita1 > PibPerCapita2 ? (PibPerCapita = PibPerCapita1) : (PibPerCapita = PibPerCapita2);
+       cidade = (PibPerCapita1 > PibPerCapita2) ? cidade1 : cidade2;
+       Resultado2 = PibPerCapita1 > PibPerCapita2 ? 1 : 0;
+       printf("Cidade %s tem o maior PIB Per Capita: %.2f\n\n", cidade, PibPerCapita);
+       break;
+ 
+   case 7:
+       printf("\nComparação entre as Cidades: %s e %s\n", cidade1, cidade2);
+       printf("Comparando o Super Poder das duas cidades:\n");
+       printf("A Cidade de %s possui o Super Poder de %.2f\n", cidade1, SuperPoder1);
+       printf("A Cidade de %s possui o Super Poder de %.2f\n", cidade2, SuperPoder2);
+ 
+       SuperPoder1 > SuperPoder2 ? (SuperPoder = SuperPoder1) : (SuperPoder = SuperPoder2);
+       cidade = (SuperPoder1 > SuperPoder2) ? cidade1 : cidade2;
+       Resultado2 = SuperPoder1 > SuperPoder2 ? 1 : 0;
+       printf("O Super Poder da cidade %s é o maior: %.2f\n\n", cidade, SuperPoder);
+       break;
+ 
+   default:
+       printf("Opção inválida! Selecione uma opção entre 1 e 7\n");
+       break;
       }
 
     }
+
+    if (Resultado1 && Resultado2){
+        printf("Parabens! Você venceu nos atributos: %d e %d\n", Atributo1, Atributo2);
+    } else if (Resultado1 != Resultado2) {
+        printf("Você empatou na comparação dos atributos: %d e %d\n", Atributo1, Atributo2);
+    } else {
+        printf("Infelizmente, você perdeu na comparação dos atributos> %d e %d\n", Atributo1, Atributo2);
+    }
+
     return 0;
 
 }
